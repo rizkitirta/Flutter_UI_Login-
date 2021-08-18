@@ -2,12 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main(List<String> args) {
-  // runApp(App());
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
-    runApp(App());
-  });
-}
+void main() async => {
+      WidgetsFlutterBinding.ensureInitialized(),
+      await SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp],
+      ), // To turn off landscape mode
+      runApp(App())
+    };
 
 class App extends StatelessWidget {
   // const App({ Key? key }) : super(key: key);
